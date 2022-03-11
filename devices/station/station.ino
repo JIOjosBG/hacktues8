@@ -2,6 +2,7 @@
 #include <WiFi.h>
 
 #include <DHT.h>
+#include <Adafruit_BMP085.h>
 
 #include "NetCredentials.h"
 
@@ -9,6 +10,7 @@
 #define SOUNDPIN 35
 
 DHT dht(DHTPIN, DHT11);
+Adafruit_BMP085 bmp;
 
 void setup() {
   Serial.begin(115200);
@@ -30,8 +32,11 @@ void setup() {
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 
-  //Read temperature and humidity
+  //Start sensor for temperature and humidity
   dht.begin();
+
+  //Start sensor for pressure
+  bmp.begin();
 }
 
 void loop() {
@@ -54,4 +59,11 @@ void loop() {
   Serial.print(" C humidity: ");
   Serial.println(humidity);
   */
+  Serial.print("Temperature = ");
+  Serial.print(bmp.readTemperature());
+  Serial.println(" *C");
+    
+  Serial.print("Pressure = ");
+  Serial.print(bmp.readPressure());
+  Serial.println(" Pa");
 }
