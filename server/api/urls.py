@@ -9,6 +9,7 @@ urlpatterns = [
 
     
     path('measurement-create/',views.measurementCreate,name="measurement-create"),
-    
+    path('measurement-last/',views.measurementLast,name="measurement-last"),
+
     
 ]
