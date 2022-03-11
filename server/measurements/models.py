@@ -7,7 +7,9 @@ class Measurements(models.Model):
     humidity = models.FloatField(null=False)
     light = models.FloatField(null=False)
     wind = models.FloatField(null=False)
+    pressure = models.FloatField(null=False)
 
     @property
     def safe(slef):
         return 1
+

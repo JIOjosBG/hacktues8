@@ -9,81 +9,103 @@
 </head>
 <body class="bg-primary">
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light m-5">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Logo</a>
+          <a class="navbar-brand ps-5" href="#">Logo</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- buttons -->
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Help</a>
-            </li>
-        </ul>
-    </div>
-</div>
-</nav>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+         <!-- buttons -->
+          <div class="collapse navbar-collapse nav justify-content-end " id="navbarSupportedContent">
+            <ul class="nav m-auto mb-2 mb-lg-0 ">
 
-<section class=" m-5 p-5 bg-danger">
-    <h1>Current Weather</h1>
-    <p1>proba</p1>
-        <p1>proba</p1>
-        <p1>proba</p1>
+                <li class="nav-item mx-2">
+                <a class="nav-link active h4" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item h4">
+                <a class="nav-link" href="#">Help</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <section class="container mt-5">
+        <h1 class="display-2">Current Weather</h1>
+        
+        <p class="d-inline display-5 py-4">Temperarure</p>
+        <p class="d-inline display-5 p-4">Humidity</p>
+        <p class="d-inline display-5 p-4">Light</p>
+
+    </section>
+
+    <section class="container mt-5">
+        <div class="row">
+            <div class="col-8 ">
+                <div class="row border  ">
+                    <div class="col p border d-flex justify-content-center"><button class="btn-warning m-2 px-3 rounded-pill h3">Latest</button></div>
+                    <div class="col p  border d-flex justify-content-center"><button class="btn-warning m-2 px-3 rounded-pill h3">Predictions</button></div>
+                    <div class="col p  border d-flex justify-content-center"><button class="btn-warning m-2 px-3 rounded-pill h3">Older</button></div>
+                    <div class="col p  border d-flex justify-content-center"> 
+                        <span class="dropdown m-2 px-3">
+                            <a class="nav-link dropdown-toggle bg-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Daily</a></li>
+                            <li><a class="dropdown-item" href="#">Weekly</a></li>
+    
+                            <li><a class="dropdown-item" href="#">Monthly</a></li>
+                        </ul>
+                        </span>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+                
+                  
+            <div class="col-4 border d-flex justify-content-center">
+                <form class="form-horizontal">
+
+                    <div class="control-group">
+                        <!-- <span class="control-label h6">Period: </span> -->
+     
+                        <div class="input-group">
+                            <span class="input-group-text">From</span>
+                            <input type="text" class="form-control me-3" placeholder="yyyy-mm-dd" aria-label="Username">
+                            <span class="input-group-text">To</span>
+                            <input type="text" class="form-control" placeholder="yyyy-mm-dd" aria-label="Server">
+                            
+                          </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </section>
     
-    <section class="container bg-muted border m-2 justify-content-center">
-        <div>
-            <button class="btn-warning m-3 px-3 rounded-pill h3">Btn-pr</button>
-            <button class="btn-warning m-3 px-3 rounded-pill h3">Btn-pr</button>
-            <button class="btn-warning m-3 px-3 rounded-pill h3">Btn-pr</button>
-        </div>
-        
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="From " aria-label="Username">
-            <span class="input-group-text">@</span>
-            <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-          </div>      
-        </section>
 
         
-        <!-- section 1 -->
-        <section class="container mt-5">
-        
-            <div class="dropdown h2">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown button
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Dailty</a></li>
-              <li><a class="dropdown-item" href="#">Weekly</a></li>
-              <li><a class="dropdown-item" href="#">Monthly</a></li>
-            </ul>
-        </div>
+       
 
         <div class="row border p-3">
             <div class="col-9">
-                <!-- just a foem -->
-                <textarea class="form-control" rows="5" cols="5" id="sent_text" placeholder="Just write some text.."></textarea>
                 <!-- Hris -->
             </div>
             <div class="col-3 justify-content-around d-flex flex-column">
-                <div class="container ">
-                    <button class="btn btn-danger">
-                        <h3>Text1</h3>
+                <div class="container  ms-5 ps-5">
+                    <button class="btn btn-danger mb-3">
+                        <h3>Daily</h3>
+                        <p>Avr Temp: 34 ?</p>
+                    </button>
+                    <button class="btn btn-danger mb-3">
+                        <h3>Weekly</h3>
                         <p>Avr Temp: 34 ?</p>
                     </button>
                     <button class="btn btn-danger">
-                        <h3>Text1</h3>
-                        <p>Avr Temp: 34 ?</p>
-                    </button>
-                    <button class="btn btn-danger">
-                        <h3>Text1</h3>
+                        <h3>Monthly</h3>
                         <p>Avr Temp: 34 ?</p>
                     </button>
                 </div>
@@ -92,65 +114,49 @@
         </div>
     </section>
     <!-- section 2 -->
-    <section class="container mt-5">
-        <h2>Daily</h2>
-        
+    <section class="container mt-5 ">
         <div class="row border p-3">
-            <div class="col-3 justify-content-around d-flex flex-column">
+            <div class="col-3 justify-content-around d-flex flex-column ms-5">
                 <div class="container ">
-                    <button class="btn btn-danger">
-                        <h3>Text1</h3>
+                    <button class="btn btn-danger mb-3">
+                        <h3>Dailty</h3>
+                        <p>Avr Temp: 34 ?</p>
+                    </button>
+                    <button class="btn btn-danger mb-3">
+                        <h3>Weakly</h3>
                         <p>Avr Temp: 34 ?</p>
                     </button>
                     <button class="btn btn-danger">
-                        <h3>Text1</h3>
-                        <p>Avr Temp: 34 ?</p>
-                    </button>
-                    <button class="btn btn-danger">
-                        <h3>Text1</h3>
+                        <h3>Monthly</h3>
                         <p>Avr Temp: 34 ?</p>
                     </button>
                 </div>
             </div>
             <div class="col-9">
-                <!-- just a foem -->
-                
+                <!-- Hris -->
             </div>
         </div>
     </section>
-    
-    <!-- section 1 -->
-    <section class="container mt-5">
-        
-        <div class="dropdown h2">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Dailty</a></li>
-                <li><a class="dropdown-item" href="#">Weekly</a></li>
-                <li><a class="dropdown-item" href="#">Monthly</a></li>
-            </ul>
-        </div>
+
+      <!-- section 3 -->
+      <section class="container mt-5">
         
         <div class="row border p-3">
             <div class="col-9">
-                <!-- just a foem -->
-                <canvas id="temperature-chart" width="800" height="450"></canvas>
-                <!-- Hris -->
+              <!-- Hris -->
             </div>
             <div class="col-3 justify-content-around d-flex flex-column">
-                <div class="container ">
-                    <button class="btn btn-danger">
-                        <h3>Text1</h3>
+                <div class="container  ms-5 ps-5">
+                    <button class="btn btn-danger mb-3">
+                        <h3>Daily</h3>
+                        <p>Avr Temp: 34 ?</p>
+                    </button>
+                    <button class="btn btn-danger mb-3">
+                        <h3>Weekly</h3>
                         <p>Avr Temp: 34 ?</p>
                     </button>
                     <button class="btn btn-danger">
-                        <h3>Text1</h3>
-                        <p>Avr Temp: 34 ?</p>
-                    </button>
-                    <button class="btn btn-danger">
-                        <h3>Text1</h3>
+                        <h3>Monthly</h3>
                         <p>Avr Temp: 34 ?</p>
                     </button>
                 </div>
