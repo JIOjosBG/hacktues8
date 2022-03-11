@@ -8,9 +8,13 @@
 
 #define DHTPIN 14
 #define SOUNDPIN 35
+#define LIGHTPIN 33
 
 DHT dht(DHTPIN, DHT11);
 Adafruit_BMP085 bmp;
+
+//Get timestamp
+long int timestamp = millis();
 
 void setup() {
   Serial.begin(115200);
@@ -39,31 +43,30 @@ void setup() {
   bmp.begin();
 }
 
-void loop() {
-  // Reading temperature or humidity takes about 250 milliseconds!
-  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
+void loop() {  
+  //DHT sensor
   float humidity = dht.readHumidity();
-  // Read temperature as Celsius (the default)
+  // Read temperature as Celsius
   float temperature = dht.readTemperature();
-
   // Compute heat index in Celsius (isFahreheit = false)
   float heat_index = dht.computeHeatIndex(temperature, humidity, false);
 
+  //Sound sensor
   uint16_t sound = analogRead(SOUNDPIN);
-  if (sound > 1200) Serial.println(sound);
-  /*
-  Serial.print("sound: ");
-  Serial.print(sound);
-  Serial.print(" temperature: ");
-  Serial.print(temperature);
-  Serial.print(" C humidity: ");
-  Serial.println(humidity);
-  */
-  Serial.print("Temperature = ");
-  Serial.print(bmp.readTemperature());
-  Serial.println(" *C");
-    
-  Serial.print("Pressure = ");
-  Serial.print(bmp.readPressure());
-  Serial.println(" Pa");
+  if (sound > 800) Serial.println(sound);
+
+  uint16_t light = analogRead(LIGHTPIN);
+  
+  if (millis() > timestamp + 2000) {
+    Serial.print("light: ");
+    Serial.print(light);
+    Serial.print(" Temperature = ");
+    Serial.print(bmp.readTemperature());
+    Serial.println(" *C");
+      
+    Serial.print("Pressure = ");
+    Serial.print(bmp.readPressure());
+    Serial.println(" Pa");
+    timestamp = millis();
+  }
 }
