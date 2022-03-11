@@ -2,12 +2,15 @@
 #include <WiFi.h>
 
 #include <DHT.h>
+#include <Adafruit_BMP085.h>
 
 #include "NetCredentials.h"
 
 #define DHTPIN 14
+#define SOUNDPIN 35
 
 DHT dht(DHTPIN, DHT11);
+Adafruit_BMP085 bmp;
 
 void setup() {
   Serial.begin(115200);
@@ -29,29 +32,38 @@ void setup() {
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 
-  //Read temperature and humidity
+  //Start sensor for temperature and humidity
   dht.begin();
+
+  //Start sensor for pressure
+  bmp.begin();
 }
 
 void loop() {
-  // Wait a few seconds between measurements.
-  delay(2000);
-
   // Reading temperature or humidity takes about 250 milliseconds!
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-  float h = dht.readHumidity();
+  float humidity = dht.readHumidity();
   // Read temperature as Celsius (the default)
-  float t = dht.readTemperature();
+  float temperature = dht.readTemperature();
 
   // Compute heat index in Celsius (isFahreheit = false)
-  float hi = dht.computeHeatIndex(t, h, false);
+  float heat_index = dht.computeHeatIndex(temperature, humidity, false);
 
-  Serial.print(F("Humidity: "));
-  Serial.print(h);
-  Serial.print(F("%  Temperature: "));
-  Serial.print(t);
-  Serial.print(F("°C "));
-  Serial.print(F("°F  Heat index: "));
-  Serial.print(hi);
-  Serial.println(F("°C "));
+  uint16_t sound = analogRead(SOUNDPIN);
+  if (sound > 1200) Serial.println(sound);
+  /*
+  Serial.print("sound: ");
+  Serial.print(sound);
+  Serial.print(" temperature: ");
+  Serial.print(temperature);
+  Serial.print(" C humidity: ");
+  Serial.println(humidity);
+  */
+  Serial.print("Temperature = ");
+  Serial.print(bmp.readTemperature());
+  Serial.println(" *C");
+    
+  Serial.print("Pressure = ");
+  Serial.print(bmp.readPressure());
+  Serial.println(" Pa");
 }
