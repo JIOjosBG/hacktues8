@@ -10,8 +10,8 @@ from measurements.models import Measurements
 def apiOverview(request):
     api_urls = {
         'List': '/measurements-list/',
+        'List between two dates': '/measurements-list/YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss/',
         'Create': '/measurement-create/',
-        'between dates':'path',
         'test':'watafak'
     }
     return Response(api_urls)
