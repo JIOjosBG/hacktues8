@@ -10,6 +10,7 @@ def apiOverview(request):
     api_urls = {
         'List': '/measurements-list/',
         'Create': '/measurement-create/',
+        'test':'watafak'
     }
     return Response(api_urls)
 
