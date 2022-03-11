@@ -1,0 +1,45 @@
+.--orange{
+    color: #FF5733;
+}
+
+.--orange-elements{
+    color: #FF5733;
+    ;
+    /* font-size: 60px; */
+    border-color: #FF5733;
+    border-radius: 28px;
+    
+    /* font-size: 30px; */
+}
+
+.--buttons-main{
+        font-size: 20px;
+        padding: 20 0 20 0;
+}
+
+.--purple-color{
+    background-color: #511845;
+}
+
+.--pink-color{
+    background-color: #C70039;
+}
+
+.--drk-purple-color{
+    background-color: #900C3F;
+}
+
+.--inputs{
+    background-color: transparent;
+    border-color:#FF5733;
+    border-radius: 20px;
+    /* text-align: center; */
+    /* display: flex;
+    justify-content: center; */
+}
+
+.--inputs::placeholder{
+    color: #FF5733 ;
+    background-color: transparent;
+}
+
