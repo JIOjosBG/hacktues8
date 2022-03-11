@@ -11,6 +11,7 @@ def apiOverview(request):
     api_urls = {
         'List': '/measurements-list/',
         'Create': '/measurement-create/',
+        'between dates':'path',
         'test':'watafak'
     }
     return Response(api_urls)
