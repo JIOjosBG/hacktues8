@@ -18,8 +18,10 @@ def apiOverview(request):
         'test':'watafak'
         },
         'bases':{
-            "Bases list":'/bases-list/',
-            "List of measurements for base":'/measurements-list/<int:pk>'
+            'Bases list':'/bases-list/',
+            'List of measurements for base':'/measurements-list/<int:pk>',
+            'List between two dates for base' : '/measurements-list/YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss/<int:pk>',
+
         }
     }
     return Response(api_urls)
@@ -67,5 +69,15 @@ def basesList(request):
 @api_view(['GET'])
 def measurementsListForBase(request,pk):
     measurements = Measurements.objects.filter(base=pk)
+    serializer = MeasurementsSerializer(measurements,many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def measurementsListByDateForBase(request,start,end,pk):    
+    start_time = datetime.strptime(start,'%Y-%m-%dT%H:%M:%S')
+    end_time = datetime.strptime(end,'%Y-%m-%dT%H:%M:%S')
+    measurements = Measurements.objects.filter(base=pk,measured_at__range=(start_time, end_time))
+
     serializer = MeasurementsSerializer(measurements,many=True)
     return Response(serializer.data)
