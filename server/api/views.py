@@ -28,9 +28,9 @@ def apiOverview(request):
 
         },
         'average measurements':{
-            'dayly': '/average-min-max/day/',
-            'weekly': '/average-min-max/week/',
-            'monthly': '/average-min-max/month/',
+            'dayly': '/average-min-max/day/<int:pk>',
+            'weekly': '/average-min-max/week/<int:pk>',
+            'monthly': '/average-min-max/month/<int:pk>',
         }
 
     }
@@ -174,29 +174,29 @@ def return_average_from_measurements(measurements):
 
 
 @api_view(['GET'])
-def averageDay(request):
+def averageDay(request,pk):
     now = timezone.now()
     yesterday = now - timedelta(days=1)
 
-    measurements = Measurements.objects.filter(measured_at__range=(yesterday,now))
+    measurements = Measurements.objects.filter(base=pk,measured_at__range=(yesterday,now))
     data=return_average_from_measurements(measurements)
     return Response(data)
 
 
 @api_view(['GET'])
-def averageWeek(request):
+def averageWeek(request,pk):
     now = timezone.now()
     week_ago = now - timedelta(days=1)
 
-    measurements = Measurements.objects.filter(measured_at__range=(week_ago,now))
+    measurements = Measurements.objects.filter(base=pk,measured_at__range=(week_ago,now))
     data=return_average_from_measurements(measurements)
     return Response(data)
 
 @api_view(['GET'])
-def averageMonth(request):
+def averageMonth(request,pk):
     now = timezone.now()
     month_ago = now - timedelta(days=1)
 
-    measurements = Measurements.objects.filter(measured_at__range=(month_ago,now))
+    measurements = Measurements.objects.filter(base=pk,measured_at__range=(month_ago,now))
     data=return_average_from_measurements(measurements)
     return Response(data)
