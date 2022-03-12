@@ -1,5 +1,7 @@
 body{
     font-family: 'Sansita Swashed', cursive;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 .--light{

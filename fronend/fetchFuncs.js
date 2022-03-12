@@ -26,19 +26,11 @@ export async function takeParameters()
                 array_for_temperatures.unshift(fixed_temperatures);
                 array_for_humidity.unshift(data[i].humidity);
                 array_for_dates.unshift(fixed_date);
-                array_for_lightness.unshift(data[i].light);
-                array_for_pressure.unshift(data[i].pressure);
+                array_for_lightness.unshift((((data[i].light)/4096)*100).toFixed(2));
+                array_for_pressure.unshift(((data[i].pressure)/1000).toFixed(0));
                 array_for_wind.unshift(data[i].wind);
 
                 pushed_data++
-
-               /*  console.log(pushed_data);
-
-                console.log(pushed_data);
-                console.log(array_for_humidity);
-                console.log(array_for_dates);
-                console.log(array_for_lightness);
-                console.log(array_for_pressure);  */
             }
 
             else
