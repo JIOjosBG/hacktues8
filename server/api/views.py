@@ -2,7 +2,9 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response 
 from datetime import datetime
+from django.utils import timezone
 
+from datetime import timedelta
 from .serializers import MeasurementsSerializer
 from measurements.models import Measurements
 from bases.models import Base
@@ -23,6 +25,11 @@ def apiOverview(request):
             'List between two dates for base' : '/measurements-list/YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss/<int:pk>',
 
         },
+        'average measurements':{
+            'dayly': '/average/day/',
+            'weekly': '/average/week/',
+            'monthly': '/average/month/',
+        }
 
     }
     return Response(api_urls)
@@ -105,3 +112,54 @@ def averages(request,start,end,pk):
     print(average_data)
     return Response(average_data)
 
+def return_average_from_measurements(measurements):
+    data={
+        "temperature": 0.0,
+        "humidity": 0.0,
+        "light": 0.0,
+        "wind": 0.0,
+        "pressure": 0,
+    }
+    for i in measurements:
+        data['temperature'] += i.temperature
+        data['humidity'] += i.humidity
+        data['light'] += i.light
+        data['wind'] += i.wind
+        data['pressure'] += i.pressure
+    l=len(measurements)
+    data['temperature'] /= l
+    data['humidity'] /= l
+    data['light'] /= l
+    data['wind'] /= l
+    data['pressure'] /= l
+
+    return data
+
+
+@api_view(['GET'])
+def averageDay(request):
+    now = timezone.now()
+    yesterday = now - timedelta(days=1)
+
+    measurements = Measurements.objects.filter(measured_at__range=(yesterday,now))
+    data=return_average_from_measurements(measurements)
+    return Response(data)
+
+
+@api_view(['GET'])
+def averageWeek(request):
+    now = timezone.now()
+    week_ago = now - timedelta(days=1)
+
+    measurements = Measurements.objects.filter(measured_at__range=(week_ago,now))
+    data=return_average_from_measurements(measurements)
+    return Response(data)
+
+@api_view(['GET'])
+def averageMonth(request):
+    now = timezone.now()
+    month_ago = now - timedelta(days=1)
+
+    measurements = Measurements.objects.filter(measured_at__range=(month_ago,now))
+    data=return_average_from_measurements(measurements)
+    return Response(data)
