@@ -1,17 +1,15 @@
-bory{
+body{
     font-family: 'Sansita Swashed', cursive;
 }
 
 .--light{
     /* color: #FF5733; */
     color: #CAF0F8;
-    font-family: 'Sansita Swashed', cursive;
+    /* font-family: 'Sansita Swashed', cursive; */
         
 }
 
-.--buttons-nav{
-    font-family: 'Sansita Swashed', cursive;
-}
+
 .--buttons-nav:hover{
     color: #FF5733;
 }
@@ -23,7 +21,7 @@ bory{
     color: #FF5733;
     text-align: center;
     border-radius: 7px;
-    font-family: 'Sansita Swashed', cursive;
+    /* font-family: 'Sansita Swashed', cursive; */
     
 }
 .--orange-elements:hover{
@@ -89,25 +87,3 @@ bory{
     color: #FF5733;
 }
 
-/* .--input-proba[type=text]:focus{
-    outline: 2px solid orange;   
-  } */
-
-/* 
-
-  @media only screen and (max-width: 600px) {
-    .--section-1 {
-        margin: 200px;
-        text-align:center;
-
-
-    }
-  } */
-
-  /* .--section-1 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* This is better for small screens, once min() is better supported */
-    /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
-    /* gap: 1rem;
-  } */ 
