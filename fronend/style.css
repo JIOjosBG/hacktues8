@@ -80,6 +80,7 @@ body{
     background-color: transparent;
     border:#00B4D8;
     color: #FF5733;
+    font-size: medium;
 }
 
 .--inputs:focus{

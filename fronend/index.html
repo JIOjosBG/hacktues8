@@ -49,29 +49,29 @@
     </nav>
 
     <section class=" container mx-5 p-5 --light --section-1  ">
-        <h1 class="display-1 --title" style="text-align: left;">Current Weather</h1>
-        <div class="row align-items-center justify-content-evenly text-center">
+        <h1 class="display-1 --title " style="text-align: left;">Current Weather</h1>
+        <div class="row align-items-center justify-content-evenly text-center ">
             <div class="col ">
-                 <p class="d-inline display-6 py-4 --buttons-nav">Temperarure</p>
-                 <p class="display-6 p-4 --buttons-nav" id = "last-temperature"></p>
+                 <p class="d-inline h2 py-4 --buttons-nav">Temperarure</p>
+                 <p class="h2 p-4 --buttons-nav" id = "last-temperature"></p>
 
             </div>
-            <div class="col  "> <p class="d-inline display-6 p-4 --buttons-nav">Humidity</p>
-                <p class="display-6 p-4 --buttons-nav" id = "last-humidity"></p>
+            <div class="col  "> <p class="d-inline h2 p-4 --buttons-nav">Humidity</p>
+                <p class="h2 p-4 --buttons-nav" id = "last-humidity"></p>
             </div>
             <div class="col  ">
-                <p class="d-inline display-6 p-4 --buttons-nav">Light</p>
-                <p class=" display-6 p-4 --buttons-nav " id = "last-light"></p>
+                <p class="d-inline h2 p-4 --buttons-nav">Light</p>
+                <p class=" h2 p-4 --buttons-nav " id = "last-light"></p>
             </div>
             <div class="col  ">
-                <p class="d-inline display-6 p-4 --buttons-nav">Wind</p>
-                <p class=" display-6 p-4 --buttons-nav " id = "last-wind"> 
+                <p class="d-inline h2 p-4 --buttons-nav">Wind</p>
+                <p class=" h2 p-4 --buttons-nav " id = "last-wind"> 
                     <!-- Hris WInd -->
                 </p>
             </div>
             <div class="col  ">
-                <p class="d-inline display-6 p-4 --buttons-nav">Pressure</p>
-                <p class=" display-6 p-4 --buttons-nav " id = "last-pressure">
+                <p class="d-inline h2 p-4 --buttons-nav">Pressure</p>
+                <p class=" h2 p-4 --buttons-nav " id = "last-pressure">
                     <!-- Hris Presure -->
                 </p>
             </div>
@@ -79,14 +79,14 @@
        
     </section>
 
-    <section class="container">
+    <section class="container m-3 ms-5 ps-5 " >
        
         <div class="row  align-items-center justify-content-evenly text-center ">
             
 
-            <div class="col-md-2  p d-flex justify-content-center"><button class="btn m-2 px-3 rounded  --orange-elements --buttons-main --button-period ">Latest</button></div>
+            <!-- <div class="col-md-2  p d-flex justify-content-center"><button class="btn m-2 px-3 rounded  --orange-elements --buttons-main --button-period ">Latest</button></div>
             <div class="col-md-2  p  d-flex justify-content-center"><button class="btn m-2 px-3 rounded   --orange-elements --buttons-main --button-period">Predictions</button></div>
-            <div class="col-md-2  p  d-flex shadow-none justify-content-center"><button class="btn m-2 px-3 rounded   --orange-elements --buttons-main --button-period">Older</button></div>
+            <div class="col-md-2  p  d-flex shadow-none justify-content-center"><button class="btn m-2 px-3 rounded   --orange-elements --buttons-main --button-period">Older</button></div> -->
             <div class="col-md-2  p  d-flex justify-content-center --button-right h3"> 
                 <span class="dropdown- m-2 px-3">
                     <a class="nav-link dropdown-toggle --orange-elements --drk-purple-color mt-2" href="#" id="Dropdownmain" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -106,8 +106,8 @@
 
                     <div class="input-group " >
                         <span class="input-group-text input-group-text-lg --orange-elements --drk-purple-color --button-right">From</span>
-                        <input type="text" class="form-control form-control-lg me-3 --light --inputs --button-right" placeholder="yyyy-mm-dd">
-                        <input type="text" class="form-control form-control-lg --light --inputs --button-right" placeholder="yyyy-mm-dd">
+                        <input type="text" class="form-control form-control-lg me-3 --light --inputs --button-right" placeholder="yyyy-mm-dd" >
+                        <input type="text" class="form-control form-control-lg --light --inputs --button-right" placeholder="yyyy-mm-dd" size="50">
                         <span class="input-group-text  input-group-text-lg--orange-elements --drk-purple-color --button-right">To</span>
                         
                     </div>
@@ -120,9 +120,9 @@
     
 
     <!-- section 1 -->
-    <section class="container m-3  ps-5  float-center           ">
+    <section class="container m-3 ms-5 ps-5 ">
 
-        <div class="row align-items-center justify-content-evenly ">
+        <div class="row align-items-center justify-content-evenly ms-5 ">
             <div class="col-lg-8 col-12 --chart1">
                 <canvas class = "chart1" id="temperature-chart" width="1000" height="450"></canvas>
             </div>
@@ -190,8 +190,8 @@
         
     </section>
     <!-- section 2 -->
-    <section class="container m-3 p-5 ">
-        <div class="row align-items-center justify-content-evenly">
+    <section class="container m-3 ms-5 mt-5 ps-5 ">
+        <div class="row align-items-center justify-content-evenly ms-5 ">
             
             <div class="col-4 justify-content-around d-flex flex-column">
                
@@ -260,9 +260,8 @@
     </section>
 
       <!-- section 3 -->
-      <section class="container m-3 mt-5">
-        
-        <div class="row p-3">
+    <section class="container m-3 ms-5 mt-5 ps-5 ">
+        <div class="row align-items-center justify-content-evenly ms-5 ">
             <div class="col-8">
                 <div class="chart-container">
                     <canvas class = "chart3" id="ligthness-chart"></canvas>
@@ -326,11 +325,11 @@
 
             </div>
         </div>
-        </div>
+
     </section>
-     <!-- section 2 -->
-     <section class="container m-3 p-5">
-        <div class="row p-3 py-3">
+     <!-- section 4 -->
+     <section class= "container m-3 ms-5 mt-5 ps-5 ">
+        <div class="row align-items-center justify-content-evenly ms-5 ">
             
             <div class="col-4 justify-content-around d-flex flex-column">
                
@@ -390,18 +389,18 @@
 
             </div>
             <div class="col-8">
-             <div>
-                <canvas class = "chart4" id="pressure-chart" width="1000" height="450"></canvas>
+                <div>
+                    <canvas class = "chart4" id="pressure-chart" width="1000" height="450"></canvas>
+                </div>
             </div>
-        </div>
         </div>
         
     </section>
 
-      <!-- section 3 -->
-      <section class="container m-3 mt-5">
+      <!-- section 5 -->
+    <section class="container m-3 ms-5 mt-5 ps-5 ">
         
-        <div class="row p-3">
+        <div class="row align-items-center justify-content-evenly ms-5 ">
             <div class="col-8">
               <canvas class = "chart5" id="wind-chart"></canvas>
             </div>
@@ -462,7 +461,6 @@
                 </div>
 
             </div>
-        </div>
         </div>
     </section>
 </div>
