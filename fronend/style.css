@@ -1,22 +1,35 @@
-.--orange{
+.--light{
     /* color: #FF5733; */
     color: #CAF0F8;
         
 }
 .--buttons-nav:hover{
-    color: #101010;
+    color: #FF5733;
+}
+.--buttons-nav:focus{
+    color:#FF5733;
+}
+orange
+.button-proba:active {
+    color: red;
+    box-shadow: yellow;
 }
 
 .--orange-elements{
     color: #FF5733;
-    ;
-    /* font-size: 60px; */
-    border-color: #FF5733;
+    text-align: center;
     border-radius: 7px;
-    
+}
+.--orange-elements:hover{
+    color:#CAF0F8;
 
 }
-
+.--orange-elements:focus {
+    /* outline: none; */
+    box-shadow: none;
+    color: #FF5733;
+  }
+  
 .--buttons-main{
         font-size: 20px;
         padding: 0px 60px;
@@ -53,20 +66,43 @@
 
 .--inputs{
     background-color: transparent;
-    border-color:#FF5733;
     border-radius: 10px;
-    /* text-align: center; */
-    /* display: flex;
-    justify-content: center; */
+
+
 }
 
+
 .--inputs::placeholder{
-    /* color: #FF5733 ; */
-    
     background-color: transparent;
+    border:#00B4D8;
+    color: #FF5733;
+}
+
+.--inputs:focus{
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    color: #FF5733;
 }
 
 /* .--input-proba[type=text]:focus{
     outline: 2px solid orange;   
   } */
 
+
+
+  @media only screen and (max-width: 600px) {
+    .--section-1 {
+        margin: 200px;
+        text-align:center;
+
+
+    }
+  }
+
+  /* .--section-1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* This is better for small screens, once min() is better supported */
+    /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
+    /* gap: 1rem;
+  } */ 

@@ -1,3 +1,5 @@
+import {take_temperatures} from './functions.js';
+
 const temperature_diagram = document.getElementById("temperature-chart").getContext("2d");
 
 const labels = ["09.03.2022", "10.03.2022", "11.03.2022", "12.03.2022", "13.03.2022", "14.03.2022", "15.03.2022", "16.03.2022", "17.03.2022"];
@@ -46,7 +48,7 @@ const data =
     datasets: 
     [
         {
-            data: [-1535, 453,1345,435,345,-850,890, 245, 909],
+            data: await take_temperatures(),
             fill: true,
         }
     ]
