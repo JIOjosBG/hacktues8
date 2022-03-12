@@ -29,14 +29,18 @@ class Measurements(models.Model):
             data[i][0]=int(data[i][0])
             data[i][1]=int(data[i][1])
         f.close()
-        #print(self.temperature)
-        #print(data[0])
-        indexes = []
-        indexes.append((self.temperature-data[0][0])/data[0][1])
-        indexes.append((self.humidity-data[1][0])/data[1][1])
-        indexes.append((self.light-data[2][0])/data[2][1])
-        indexes.append((self.wind-data[3][0])/data[3][1])
-        indexes.append((self.pressure-data[4][0])/data[4][1])
-        indexes = reduce(lambda a, b: a * b, indexes)
-        return indexes
 
+        indexes = []
+        indexes.append(1-abs((self.temperature-data[0][0])/(data[0][1]*2)))
+        indexes.append(1-abs((self.humidity-data[1][0])/(data[1][1]*2)))
+        indexes.append(1-abs((self.light-data[2][0])/(data[2][1]*2)))
+        indexes.append(1-abs((self.wind-data[3][0])/(data[3][1]*2)))
+        indexes.append(1-abs((self.pressure-data[4][0])/(data[4][1]*2)))
+        
+        i=1
+        print(indexes)
+        i=reduce(lambda a,b: a*b,indexes)
+        return i
+
+    def __str__(self):
+        return str(self.safe)

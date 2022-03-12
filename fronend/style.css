@@ -1,24 +1,28 @@
+body{
+    font-family: 'Sansita Swashed', cursive;
+}
+
 .--light{
     /* color: #FF5733; */
     color: #CAF0F8;
+    /* font-family: 'Sansita Swashed', cursive; */
         
 }
+
+
 .--buttons-nav:hover{
     color: #FF5733;
 }
 .--buttons-nav:focus{
     color:#FF5733;
 }
-orange
-.button-proba:active {
-    color: red;
-    box-shadow: yellow;
-}
 
 .--orange-elements{
     color: #FF5733;
     text-align: center;
     border-radius: 7px;
+    /* font-family: 'Sansita Swashed', cursive; */
+    
 }
 .--orange-elements:hover{
     color:#CAF0F8;
@@ -34,7 +38,7 @@ orange
         font-size: 20px;
         padding: 0px 60px;
         background-color: transparent;
-        /* box-shadow:#101010; */
+
 }
 
 .--buttons-main:hover{
@@ -71,7 +75,6 @@ orange
 
 }
 
-
 .--inputs::placeholder{
     background-color: transparent;
     border:#00B4D8;
@@ -84,25 +87,3 @@ orange
     color: #FF5733;
 }
 
-/* .--input-proba[type=text]:focus{
-    outline: 2px solid orange;   
-  } */
-
-
-
-  @media only screen and (max-width: 600px) {
-    .--section-1 {
-        margin: 200px;
-        text-align:center;
-
-
-    }
-  }
-
-  /* .--section-1 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* This is better for small screens, once min() is better supported */
-    /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
-    /* gap: 1rem;
-  } */ 
