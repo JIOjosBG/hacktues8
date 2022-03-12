@@ -15,7 +15,7 @@ navigation.add
 ({
     targets: '.--buttons-nav',
     opacity: [0,1],
-    duration: 1000,
+    duration: 1500,
 },'-=400')
 
 .add
@@ -23,6 +23,7 @@ navigation.add
     targets: '.--button-period',
     opacity: [0, 1],
     translateX: [-20,0],
+    duration: 1000,
 }, '-=1000')
 
 .add
@@ -39,19 +40,10 @@ var charts = anime.timeline(
 
 charts.add
 ({
-    targets: '.chart1',
-    opacity: [0, 1],
-    translateY:[20, 0],
-    duration: 1500,
-    delay: 2000,
-})
-
-charts.add
-({
     targets: '.--avg-values-right1',
     opacity: [0, 1],
     translateX: [90, 0],
-    delay: anime.stagger(200, {start: 0}),
+    delay: anime.stagger(200, {start: 1000}),
     easing: 'easeInOutExpo',
     duration: 1500,
-}, '-=1500')
+})
