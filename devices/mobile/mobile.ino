@@ -7,6 +7,7 @@
 
 #define BUZZERPIN 12
 #define LEDPIN 25
+#define BTNPIN 33
 
 #define AP_SSID "SPIM"
 #define AP_PASS "AH^Bj7*?LE]h==@h=_.Y;E$kM?~FdL]TvzY8^9aFxh&W%-%hux"
@@ -41,6 +42,8 @@ void setup() {
   //Connect to station ESP32
   connect_to_wifi();
   server.begin();
+  pinMode(LEDPIN, OUTPUT);
+  pinMode(BTNPIN, INPUT);
 }
 
 void loop() {
@@ -58,4 +61,5 @@ void loop() {
     tone(BUZZERPIN, 1250, 100);
     digitalWrite(LEDPIN, HIGH);
   }
+  if (digitalRead(BTNPIN)) safe = true;
 }

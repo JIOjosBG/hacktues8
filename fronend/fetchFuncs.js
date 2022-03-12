@@ -3,6 +3,7 @@ const array_for_humidity = [];
 const array_for_dates = [];
 const array_for_lightness = [];
 const array_for_pressure = [];
+const array_for_wind = [];
 
 export async function takeParameters()
 {
@@ -20,13 +21,14 @@ export async function takeParameters()
             {
                 let fixed_temperatures = data[i].temperature.toFixed(2);
                 let date = new Date(data[i].measured_at);
-                let fixed_date = date.getFullYear() + '-' + date.getDate() + '-' + date.getHours();                
+                let fixed_date = date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate() + '-' + date.getHours();                
 
                 array_for_temperatures.unshift(fixed_temperatures);
                 array_for_humidity.unshift(data[i].humidity);
                 array_for_dates.unshift(fixed_date);
                 array_for_lightness.unshift(data[i].light);
                 array_for_pressure.unshift(data[i].pressure);
+                array_for_wind.unshift(data[i].wind);
 
                 pushed_data++
 
@@ -79,4 +81,9 @@ export function light()
 export function pressure()
 {
     return array_for_pressure;
+}
+
+export function wind()
+{
+    return array_for_wind;
 }
