@@ -1,6 +1,8 @@
 import {waiting,takeParameters, temperatures, dates, humidity, light, pressure} from './fetchFuncs.js';
 
 const temperature_diagram = document.getElementById("temperature-chart").getContext("2d");
+const humidity_diagram = document.getElementById("humidity-chart").getContext("2d");
+
 await waiting();
 
 const labels = dates();
@@ -19,8 +21,6 @@ Chart.defaults.elements.point.borderColor = 'black';
 Chart.defaults.elements.line.tension = 0.3;
 Chart.defaults.elements.line.borderWidth = 3;
 Chart.defaults.elements.line.borderColor = '#90E0EF';
-
-
 Chart.defaults.font.size = 15;
 
 let delayed;
@@ -39,7 +39,7 @@ const plugin =
     }
   };
 
-const data = 
+const data_temperatures = 
 {
     labels,
     datasets: 
@@ -51,10 +51,21 @@ const data =
     ]
 };
 
-const configurations_for_labels_charts = 
+const data_humidity = 
+{
+   labels,
+   datasets: 
+   [
+       {
+           data: humidity(),
+       }
+   ]
+}
+
+const configurations_for_temperatures = 
 {
     type: 'line',
-    data : data,
+    data : data_temperatures,
     plugins: [plugin],
     options:
     {
@@ -136,33 +147,87 @@ const configurations_for_labels_charts =
     }
 }
 
-const myChart = new Chart(temperature_diagram, configurations_for_labels_charts);
-
-/* function RefreshTemperatureChart(array_temp)
+const configurations_for_humidity = 
 {
-    console.log(myChart.data.datasets);
-    myChart.data.datasets.forEach((dataset) => {
-        dataset.data.pop();
-    });
-     
-    myChart.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
-    });
+    type: "bar",
+    data: data_humidity,
+    plugins: [plugin],
+    options:
+    {
+        plugins:
+        {   
+            title: 
+            {
+                display: true,
+                text: 'Predicted world population (millions) in 2050',
+                color: '#511845',
+                font:
+                {
+                    size: 18,
+                }
+            },
 
-    myChart.update();
+            legend: 
+            {
+              display: false
+            },
+        }, 
+
+        responsive: true,
+        animation: 
+        {
+            onComplete: () => 
+            {
+              delayed = true;
+            },
+            delay: (context) =>
+            {
+              let delay = 0;
+              if (context.type === 'data' && context.mode === 'default' && !delayed) 
+              {
+                delay = context.dataIndex * 150 + context.datasetIndex * 60;
+              }
+              return delay;
+            }
+        },
+
+        scales: {
+            y: 
+            {
+              ticks:
+              {
+                color: "#03045E",
+                fontSize: 20,
+                callback: function(value)
+                {
+                    return value + "%";
+                },
+              },
+              grid:
+              {
+                 display : false,
+              },
+            },
+
+            x: 
+            {
+                ticks:
+                {
+                    color: "#03045E",
+                },
+
+                grid:
+                {
+                    display : false,
+                },
+            },
+
+        },
+
+        backgroundColor: gradient, 
+        maintainAspectRatio: true,
+    } 
 }
 
-/* let sensor_information;
-const array_temp = [0,5,2,5,7,9,13];
-
-function setBase(value)
-{
-    if(value == 2)
-    {
-        RefreshTemperatureChart(array_temp)
-    }
-    //await take_temperatures(value);
-    console.log(value);
-} 
-
-window.onload = setBase(1);*/
+const temperatureChart = new Chart(temperature_diagram, configurations_for_temperatures);
+const humidityChart = new Chart(humidity_diagram, configurations_for_humidity);
