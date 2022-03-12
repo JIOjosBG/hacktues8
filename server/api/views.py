@@ -48,7 +48,6 @@ def measurementsListByDate(request,start,end):
     start_time = datetime.strptime(start,'%Y-%m-%dT%H:%M:%S')
     end_time = datetime.strptime(end,'%Y-%m-%dT%H:%M:%S')
     measurements = Measurements.objects.filter(measured_at__range=(start_time, end_time))
-
     serializer = MeasurementsSerializer(measurements,many=True)
     return Response(serializer.data)
 
