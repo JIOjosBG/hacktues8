@@ -6,6 +6,7 @@ import {
   humidity,
   light,
   pressure,
+  wind,
 } from "./fetchFuncs.js";
 
 const temperature_diagram = document
@@ -20,6 +21,9 @@ const lightness_diagram = document
 const pressure_diagram = document
   .getElementById("pressure-chart")
   .getContext("2d");
+const wind_diagram = document
+  .getElementById("wind-chart")
+  .getContext("2d");
 
 await waiting();
 
@@ -32,7 +36,7 @@ gradient.addColorStop(0.5, "rgba(144,224,239, 0.5)");
 gradient.addColorStop(1, "rgba(144,224,239, 0 )");
 
 Chart.defaults.elements.point.hoverRadius = 5;
-Chart.defaults.elements.point.hitRadius = 30;
+Chart.defaults.elements.point.hitRadius = 35;
 Chart.defaults.elements.point.backgroundColor = "black";
 Chart.defaults.elements.point.borderWidth = 0.2;
 Chart.defaults.elements.point.borderColor = "black";
@@ -90,9 +94,16 @@ const data_pressure = {
         data: pressure(),
       },
     ],
-  };
+};
 
-
+const data_wind = {
+    labels,
+    datasets: [
+      {
+        data: wind(),
+      },
+    ],
+};
 
 const commonConfiguration = {
   plugins: [plugin],
@@ -132,7 +143,7 @@ const commonConfiguration = {
           color: "#03045E",
           fontSize: 20,
         },
-
+        
         grid: {
           display: false,
         },
@@ -179,6 +190,15 @@ const pressureChart = new Chart(pressure_diagram, {
 
 pressureChart.options.plugins.title.text = "Pressure chart";
 pressureChart.update();
+
+const windChart = new Chart(wind_diagram, {
+    type: "line",
+    data: data_wind,
+    ...commonConfiguration,
+});
+
+windChart.options.plugins.title.text = "Wind chart";
+windChart.update();
 
 const lightnessChart = new Chart(lightness_diagram, {
   type: "polarArea",
