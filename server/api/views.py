@@ -57,7 +57,6 @@ def measurementCreate(request):
     serializer = MeasurementsSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
-    
     return Response(serializer.data)
 
 

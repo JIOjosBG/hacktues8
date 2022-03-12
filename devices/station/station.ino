@@ -1,27 +1,31 @@
 //station on Mars
-#include <WiFi.h>
 
+//Arduino libraries
+#include <Arduino_JSON.h>
+//ESP32 libraries from espressif
+#include <WiFi.h>
+#include <HTTPClient.h>
+//Installed libraries from library manager
 #include <DHT.h>
 #include <Adafruit_BMP085.h>
-
+//Local files
 #include "NetCredentials.h"
 
 #define DHTPIN 14
 #define SOUNDPIN 35
 #define LIGHTPIN 33
 
+#define MEASUREMENT_DELAY 600000
+
 DHT dht(DHTPIN, DHT11);
 Adafruit_BMP085 bmp;
+HTTPClient http;
 
 //Get timestamp
 long int timestamp = millis();
 
-void setup() {
-  Serial.begin(115200);
-  delay(10);
 
-  //Connect to WiFi
-  
+void connect_to_wifi() {
   Serial.print("\n\nConnecting to \n");
   Serial.println(NET_SSID);
 
@@ -35,15 +39,11 @@ void setup() {
   Serial.println("\nWiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-
-  //Start sensor for temperature and humidity
-  dht.begin();
-
-  //Start sensor for pressure
-  bmp.begin();
+  delay(10);
 }
 
-void loop() {  
+
+void send_measurements() {
   //DHT sensor
   float humidity = dht.readHumidity();
   // Read temperature as Celsius
@@ -55,18 +55,61 @@ void loop() {
   uint16_t sound = analogRead(SOUNDPIN);
   if (sound > 800) Serial.println(sound);
 
+  //Light sensor
   uint16_t light = analogRead(LIGHTPIN);
+
+  //Air pressure sensor
+  uint32_t pressure = bmp.readPressure();
   
-  if (millis() > timestamp + 2000) {
-    Serial.print("light: ");
-    Serial.print(light);
-    Serial.print(" Temperature = ");
-    Serial.print(bmp.readTemperature());
-    Serial.println(" *C");
-      
-    Serial.print("Pressure = ");
-    Serial.print(bmp.readPressure());
-    Serial.println(" Pa");
+  Serial.print("light: ");
+  Serial.print(light);
+  Serial.print(" Temperature = ");
+  Serial.print(temperature);
+  Serial.println(" *C");
+  Serial.print("sound: ");
+  Serial.print(sound);
+  Serial.print(" Pressure = ");
+  Serial.print(pressure);
+  Serial.println(" Pa");
+
+  if (WiFi.status() != WL_CONNECTED) {
+    connect_to_wifi();
+  }
+
+  JSONVar object;
+  object["temperature"] = temperature;
+  object["humidity"] = humidity;
+  object["light"] = light;
+  object["wind"] = int(sound > 800);
+  object["pressure"] = (int)pressure;
+  object["base"] = 1;
+  http.begin((String)SERVER_URL + "/api/measurement-create/");
+  http.addHeader("Content-Type", "application/json");
+  if (int code = http.POST(JSON.stringify(object)) > 0) {
+    Serial.println(http.getString());
+    Serial.println(code);
+  }
+  else Serial.println(code);
+  http.end();
+}
+
+
+void setup() {
+  Serial.begin(115200);
+  connect_to_wifi();
+  
+  //Start sensor for temperature and humidity
+  dht.begin();
+  //Start sensor for pressure
+  bmp.begin();
+
+  //Send the first measurements
+  send_measurements();
+}
+
+void loop() {  
+  if (millis() > timestamp + MEASUREMENT_DELAY) {
+    send_measurements();
     timestamp = millis();
   }
 }
