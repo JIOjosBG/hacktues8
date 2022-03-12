@@ -1,45 +1,78 @@
 .--orange{
-    color: #FF5733;
+    /* color: #FF5733; */
+    color: #CAF0F8;
+        
+}
+.--buttons-nav:hover{
+    color: #101010;
 }
 
 .--orange-elements{
-    color: #FF5733;
-    ;
-    /* font-size: 60px; */
-    border-color: #FF5733;
+    /* color: #FF5733;
+    border-color: #FF5733; */
+
+    color: #CAF0F8;
+    border-color: #CAF0F8;
+
     border-radius: 28px;
     
-    /* font-size: 30px; */
+
 }
 
 .--buttons-main{
         font-size: 20px;
-        padding: 20 0 20 0;
+        padding: 0px 60px;
+        background-color: transparent;
+        /* box-shadow:#101010; */
+}
+
+.--buttons-main:hover{
+    background-color: transparent;
+    /* color:#101010; */
+}
+.--buttons-main:focus{
+    outline:none;
+}
+
+.--buttons-main:active{
+    background-color: transparent;
 }
 
 .--purple-color{
-    background-color: #511845;
+    /* background-color: #511845; */
+    /* background-color: #03045E; */
+    /* background-color: #000D6B; */
+    /* background-color: #C1A3A3; */
+    background-color: #D8B6A4;
+    
 }
 
 .--pink-color{
-    background-color: #C70039;
+    /* background-color: #C70039; */
+    background-color: #00B4D8;
 }
 
 .--drk-purple-color{
-    background-color: #900C3F;
+    /* background-color: #900C3F; */ 
+    background-color: #90E0EF;
+    color: #03045E;
 }
 
 .--inputs{
     background-color: transparent;
-    border-color:#FF5733;
+    /* border-color:#FF5733; */
+    border-color:#00B4D8;
     border-radius: 20px;
-    /* text-align: center; */
-    /* display: flex;
-    justify-content: center; */
+
 }
 
 .--inputs::placeholder{
-    color: #FF5733 ;
+    /* color: #FF5733 ; */
+    
     background-color: transparent;
 }
+
+/* .--input-proba[type=text]:focus{
+    outline: 2px solid orange;   
+  } */
 

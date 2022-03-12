@@ -19,16 +19,15 @@
          <!-- buttons -->
           <div class="collapse navbar-collapse nav justify-content-end " id="navbarSupportedContent">
             <ul class="nav m-auto mb-2 mb-lg-0 ">
-
-                <li class="nav-item mx-2">
-                <a class="nav-link active h4 --orange" aria-current="page" href="#">Home</a>
+                <li class="nav-item ">
+                <a class="nav-link active h4 --orange --buttons-nav "href="#">Home</a>
               </li>
-              <li class="nav-item h4">
-                <a class="nav-link --orange" href="#">Help</a>
+              <li class="nav-item ">
+                <a class="nav-link h4 --orange --buttons-nav " href="#">Help</a>
               </li>
               <div>
                 <span class="dropdown">
-                <li class="nav-item dropdown h4 mx-2"><a href="" class="nav-link dropdown-toggle" id="navbarDropdown"
+                <li class="nav-item dropdown h4"><a href="" class="nav-link dropdown-toggle --orange-elements --buttons-nav " id="navbarDropdown"
                  role="button" data-bs-toggle="dropdown" aria-expanded="false">Bases</a>
                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item  " href="#">Base 1</a></li>
@@ -57,14 +56,13 @@
         <div class="row">
             <div class="col-8 ">
                 <div class="row  ">
-                    <div class="col p d-flex justify-content-center"><button class="btn m-2 px-3 rounded-pill  --orange-elements --buttons-main">Latest</button></div>
-                    <div class="col p  d-flex justify-content-center"><button class="btn m-2 px-3 rounded-pill   --orange-elements --buttons-main">Predictions</button></div>
-                    <div class="col p  d-flex justify-content-center"><button class="btn m-2 px-3 rounded-pill   --orange-elements --buttons-main">Older</button></div>
-                    <div class="col p  d-flex justify-content-center"> 
+                    <div class="col p d-flex justify-content-center"><div class="h1 m-2 px-3 rounded-pill  --orange-elements --buttons-main">Latest</div></div>
+                    <div class="col p d-flex justify-content-center"><div class="h1 m-2 px-3 rounded-pill   --orange-elements --buttons-main">Predictions</div></div>
+                    <div class="col p d-flex justify-content-center"><div class="h1 m-2 px-3 rounded-pill   --orange-elements --buttons-main">Older</div></div>
+                    <div class="col p d-flex justify-content-center"> 
                         <span class="dropdown m-2 px-3">
                             <a class="nav-link dropdown-toggle --orange-elements --drk-purple-color mt-2" href="#" id="Dropdownmain" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
+                            Dropdown</a>
                         <ul class="dropdown-menu" aria-labelledby="Dropdownmain">
                             <li><a class="dropdown-item  " href="#">Daily</a></li>
                             <li><a class="dropdown-item " href="#">Weekly</a></li>
@@ -102,32 +100,32 @@
     
 
     <!-- section 1 -->
-    <section class="container mt-5">
+    <section class="container border mt-5">
         
        
 
-        <div class="row p-3">
-            <div class="col-9">
+        
+            <div class="col p-3">
                 <canvas id="temperature-chart" width="800" height="450"></canvas>
             </div>
-            <div class="col-3 justify-content-around d-flex flex-column">
-                <div class="container  ms-5 ps-5 --orange">
-                    <div class="btn  mb-3 --orange-elements">
+
+            
+                <div class="container  d-flex justify-content-around --orange mt-3" >
+                    <div class="btn  mb-3 --orange-elements px-5 " style = "width: 300px;">
                         <h3>Daily</h3>
                         <p>Avr Temp: 34 ?</p>
                     </div>
-                    <div class="btn  mb-3 --orange-elements">
+                    <div class="btn  mb-3 --orange-elements px-5" style = "width: 300px;">
                         <h3>Weekly</h3>
                         <p>Avr Temp: 34 ?</p>
                     </div>
-                    <div class="btn  --orange-elements">
+                    <div class="btn mb-3 --orange-elements px-5" style = "width: 300px;">
                         <h3>Monthly</h3>
                         <p>Avr Temp: 34 ?</p>
                     </div>
                 </div>
 
-            </div>
-        </div>
+        
     </section>
     <!-- section 2 -->
     <section class="container mt-5 ">
