@@ -15,7 +15,7 @@
 #define SOUNDPIN 35
 #define LIGHTPIN 33
 
-#define MEASUREMENT_DELAY 600000
+#define MEASUREMENT_DELAY 60000
 #define AP_SSID "SPIM"
 #define AP_PASS "AH^Bj7*?LE]h==@h=_.Y;E$kM?~FdL]TvzY8^9aFxh&W%-%hux"
 #define TCP_PORT 8088
@@ -50,7 +50,7 @@ void connect_to_wifi() {
 
 void send_alert() {
   WiFiClient client;
-  Serial.println("connecting to mobiles")
+  Serial.println("connecting to mobiles");
   while (!client.connect(TCP_HOST, TCP_PORT)) {
     Serial.print("_");
   }
@@ -105,7 +105,7 @@ void send_measurements() {
     String payload = http.getString();
     object = JSON.parse(payload);
     Serial.println(payload);
-    if (!object["safe"]) send_alert();
+    if ((double)object["safe"] < 0.4) send_alert();
   }
   else Serial.println(code);
   http.end();

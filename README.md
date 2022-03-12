@@ -16,7 +16,7 @@
 ## Описание
 
 Системата съдържа няколко компонента:
-* множество устройства, разположени в станции на Марс, които чрез сензори измерват външната обстановка - температура, влажност, марсотресения, светлина;
+* множество устройства, разположени в станции на Марс, които чрез сензори измерват външната обстановка - температура, влажност, налягане, светлина;
 * джобни устройства, които астронавтите взимат със себе си при експедиция, за да бъдат уведомявани при сериозно отклонения в показателите до станциите;
 * сървър, в който се съхранява информация за предишни, текущи (и бъдещи) данни;
 * уеб сайт, в който нагледно е представена информацията чрез графики.
@@ -25,12 +25,15 @@
 
 ## Използвани технологии: 
 
+* HTML, CSS
+* [Bootstrap](https://getbootstrap.com/)
+* [Anime.js](https://animejs.com/)
+* [Chart.js](https://www.chartjs.org/)
 * [JavaScript](https://www.javascript.com/)
 * [Django](https://www.djangoproject.com/)
 * [Django REST Framework](https://www.django-rest-framework.org/)
 * [Python](https://www.python.org/)
 * [ESP32 Development board](https://www.espressif.com/en/products/socs/esp32)
-* [Arduino IDE](https://www.arduino.cc/en/software)
 * [Arduino Language](https://www.arduino.cc/reference/en/)
 
 
@@ -41,5 +44,5 @@
 * **Николай Лазаров** - *дизайн и потребителски интерфейс*
 * **Християн Радев** - *фронтенд и анимации*
 
-## [Презентация]()
+## [Презентация](https://docs.google.com/presentation/d/1-_eLe12qtFBJGbpQQPaEt_KGXbQLcmcE52BXi8JRKOY/edit?usp=sharing)
 
