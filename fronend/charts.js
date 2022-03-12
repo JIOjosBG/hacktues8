@@ -1,13 +1,11 @@
-import {take_temperatures} from './functions.js';
+import {waiting,takeParameters, temperatures, dates, humidity, light, pressure} from './fetchFuncs.js';
 
 const temperature_diagram = document.getElementById("temperature-chart").getContext("2d");
+await waiting();
 
-const labels = ["09.03.2022", "10.03.2022", "11.03.2022", "12.03.2022", "13.03.2022", "14.03.2022", "15.03.2022", "16.03.2022", "17.03.2022"];
+const labels = dates();
 
 let gradient = temperature_diagram.createLinearGradient(0,0,0,450);
-// gradient.addColorStop(0, "rgba(255, 87, 51, 1)");
-// gradient.addColorStop(0.5, "rgba(255, 87, 51, 0.5)");
-// gradient.addColorStop(1, "rgba(255, 87, 51, 0 )");
 
 gradient.addColorStop(0, "rgba(144,224,239, 1)");
 gradient.addColorStop(0.5, "rgba(144,224,239, 0.5)");
@@ -20,7 +18,6 @@ Chart.defaults.elements.point.borderWidth = 0.2;
 Chart.defaults.elements.point.borderColor = 'black'; 
 Chart.defaults.elements.line.tension = 0.3;
 Chart.defaults.elements.line.borderWidth = 3;
-// Chart.defaults.elements.line.borderColor = '#C70039';
 Chart.defaults.elements.line.borderColor = '#90E0EF';
 
 
@@ -48,7 +45,7 @@ const data =
     datasets: 
     [
         {
-            data: await take_temperatures(),
+            data: temperatures(),
             fill: true,
         }
     ]
@@ -140,3 +137,32 @@ const configurations_for_labels_charts =
 }
 
 const myChart = new Chart(temperature_diagram, configurations_for_labels_charts);
+
+/* function RefreshTemperatureChart(array_temp)
+{
+    console.log(myChart.data.datasets);
+    myChart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+     
+    myChart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+
+    myChart.update();
+}
+
+/* let sensor_information;
+const array_temp = [0,5,2,5,7,9,13];
+
+function setBase(value)
+{
+    if(value == 2)
+    {
+        RefreshTemperatureChart(array_temp)
+    }
+    //await take_temperatures(value);
+    console.log(value);
+} 
+
+window.onload = setBase(1);*/
