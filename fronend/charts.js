@@ -17,6 +17,9 @@ const humidity_diagram = document
 const lightness_diagram = document
   .getElementById("ligthness-chart")
   .getContext("2d");
+const pressure_diagram = document
+  .getElementById("pressure-chart")
+  .getContext("2d");
 
 await waiting();
 
@@ -80,13 +83,23 @@ const data_lightness = {
   ],
 };
 
+const data_pressure = {
+    labels,
+    datasets: [
+      {
+        data: pressure(),
+      },
+    ],
+  };
+
+
+
 const commonConfiguration = {
   plugins: [plugin],
   options: {
     plugins: {
       title: {
         display: true,
-        //text: "Grafika",
         color: "#511845",
         font: {
           size: 18,
@@ -103,6 +116,7 @@ const commonConfiguration = {
       onComplete: () => {
         delayed = true;
       },
+
       delay: (context) => {
         let delay = 0;
         if (context.type === "data" && context.mode === "default" && !delayed) {
@@ -126,7 +140,6 @@ const commonConfiguration = {
 
       x: {
         ticks: {
-          // color: "#511845",
           color: "#03045E",
         },
 
@@ -146,7 +159,7 @@ const temperatureChart = new Chart(temperature_diagram, {
   ...commonConfiguration,
 });
 
-temperatureChart.options.plugins.title.text = "Prob1";
+temperatureChart.options.plugins.title.text = "Temperatures chart";
 temperatureChart.update();
 
 const humidityChart = new Chart(humidity_diagram, {
@@ -155,12 +168,25 @@ const humidityChart = new Chart(humidity_diagram, {
   ...commonConfiguration,
 });
 
-humidityChart.options.plugins.title.text = "Prob2";
+humidityChart.options.plugins.title.text = "Humidity chart";
 humidityChart.update();
+
+const pressureChart = new Chart(pressure_diagram, {
+    type: "bar",
+    data: data_pressure,
+    ...commonConfiguration,
+});
+
+pressureChart.options.plugins.title.text = "Pressure chart";
+pressureChart.update();
 
 const lightnessChart = new Chart(lightness_diagram, {
   type: "polarArea",
   data: data_lightness,
   ...commonConfiguration,
 });
+
+lightnessChart.options.plugins.title.text = "Lightness chart";
+lightnessChart.update();
+
 

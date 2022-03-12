@@ -20,7 +20,7 @@ export async function takeParameters()
             {
                 let fixed_temperatures = data[i].temperature.toFixed(2);
                 let date = new Date(data[i].measured_at);
-                let fixed_date = date.getFullYear() + '-' + date.getDate() + '-' + date.getHours();                
+                let fixed_date = date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate() + '-' + date.getHours();                
 
                 array_for_temperatures.unshift(fixed_temperatures);
                 array_for_humidity.unshift(data[i].humidity);
