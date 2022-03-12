@@ -16,10 +16,13 @@
 #define LIGHTPIN 33
 
 #define MEASUREMENT_DELAY 600000
+#define AP_SSID "SPIM"
+#define AP_PASS "AH^Bj7*?LE]h==@h=_.Y;E$kM?~FdL]TvzY8^9aFxh&W%-%hux"
 
 DHT dht(DHTPIN, DHT11);
 Adafruit_BMP085 bmp;
 HTTPClient http;
+WiFiServer server(8001);
 
 //Get timestamp
 long int timestamp = millis();
@@ -87,7 +90,6 @@ void send_measurements() {
   http.addHeader("Content-Type", "application/json");
   if (int code = http.POST(JSON.stringify(object)) > 0) {
     Serial.println(http.getString());
-    Serial.println(code);
   }
   else Serial.println(code);
   http.end();
@@ -103,6 +105,11 @@ void setup() {
   //Start sensor for pressure
   bmp.begin();
 
+  //Start WiFi Access Point
+  WiFi.softAP(AP_SSID, AP_PASS);
+  Serial.println(WiFi.softAPIP());
+  server.begin();
+
   //Send the first measurements
   send_measurements();
 }
@@ -112,4 +119,6 @@ void loop() {
     send_measurements();
     timestamp = millis();
   }
+//  uint16_t sound = analogRead(SOUNDPIN);
+//  Serial.println(sound);
 }
