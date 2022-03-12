@@ -8,13 +8,11 @@
 }
 
 .--orange-elements{
-    /* color: #FF5733;
-    border-color: #FF5733; */
-
-    color: #CAF0F8;
-    border-color: #CAF0F8;
-
-    border-radius: 28px;
+    color: #FF5733;
+    ;
+    /* font-size: 60px; */
+    border-color: #FF5733;
+    border-radius: 7px;
     
 
 }
@@ -39,12 +37,7 @@
 }
 
 .--purple-color{
-    /* background-color: #511845; */
-    /* background-color: #03045E; */
-    /* background-color: #000D6B; */
-    /* background-color: #C1A3A3; */
-    background-color: #D8B6A4;
-    
+    background-color: #20071b;
 }
 
 .--pink-color{
@@ -60,10 +53,11 @@
 
 .--inputs{
     background-color: transparent;
-    /* border-color:#FF5733; */
-    border-color:#00B4D8;
-    border-radius: 20px;
-
+    border-color:#FF5733;
+    border-radius: 10px;
+    /* text-align: center; */
+    /* display: flex;
+    justify-content: center; */
 }
 
 .--inputs::placeholder{

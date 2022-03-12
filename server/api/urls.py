@@ -11,6 +11,7 @@ urlpatterns = [
     path('bases-list/',views.basesList,name="bases-list"),
     path('measurements-list/<int:pk>',views.measurementsListForBase,name="measurements-list-for-base"),
     re_path(r'^measurements-list/(?P<start>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})/(?P<end>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})/(?P<pk>[0-9]|[0-9][0-9])/', views.measurementsListByDateForBase),
+    re_path(r'^averages/(?P<start>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})/(?P<end>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})/(?P<pk>[0-9]|[0-9][0-9])/', views.averages),
 
 
 

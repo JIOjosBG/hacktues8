@@ -34,8 +34,7 @@ const plugin =
         const ctx = chart.canvas.getContext('2d');
         ctx.save();
         ctx.globalCompositeOperation = 'destination-over';
-        // ctx.fillStyle = "rgba(199, 0, 57, 0.8)";
-        ctx.fillStyle = "#EEEBDD";
+        ctx.fillStyle = "rgba(250, 50, 50, 0.6";
         ctx.fillRect(0, 0, chart.width, chart.height);
         ctx.restore();
     }
@@ -47,7 +46,7 @@ const data =
     datasets: 
     [
         {
-            data: [1535, 453,1345,435,345,850,890, 245, 909],
+            data: [-1535, 453,1345,435,345,-850,890, 245, 909],
             fill: true,
         }
     ]
