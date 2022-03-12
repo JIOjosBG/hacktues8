@@ -40,3 +40,5 @@ class Measurements(models.Model):
         indexes = reduce(lambda a, b: a * b, indexes)
         return indexes
 
+    def __str__(self):
+        return self.safe
