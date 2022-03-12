@@ -88,3 +88,10 @@ body{
     color: #FF5733;
 }
 
+.chart-container
+{
+    position: relative;
+    height: 70%;
+    width: 70%;
+}
+
