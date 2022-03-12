@@ -1,8 +1,9 @@
-import {takeParameters, temperatures} from './functions.js';
+import {waiting,takeParameters, temperatures, dates, humidity, light, pressure} from './fetchFuncs.js';
 
 const temperature_diagram = document.getElementById("temperature-chart").getContext("2d");
+await waiting();
 
-const labels = ["09.03.2022", "10.03.2022", "11.03.2022", "12.03.2022", "13.03.2022", "14.03.2022", "15.03.2022", "16.03.2022", "17.03.2022"];
+const labels = dates();
 
 let gradient = temperature_diagram.createLinearGradient(0,0,0,450);
 
@@ -44,7 +45,7 @@ const data =
     datasets: 
     [
         {
-            data: await temperatures(),
+            data: temperatures(),
             fill: true,
         }
     ]
@@ -137,7 +138,7 @@ const configurations_for_labels_charts =
 
 const myChart = new Chart(temperature_diagram, configurations_for_labels_charts);
 
-function RefreshTemperatureChart(array_temp)
+/* function RefreshTemperatureChart(array_temp)
 {
     console.log(myChart.data.datasets);
     myChart.data.datasets.forEach((dataset) => {
@@ -162,6 +163,6 @@ function setBase(value)
     }
     //await take_temperatures(value);
     console.log(value);
-} */
+} 
 
-window.onload = setBase(1);
+window.onload = setBase(1);*/

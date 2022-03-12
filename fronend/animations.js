@@ -8,7 +8,7 @@ navigation.add
     targets: ['.display-2'],
     translateY: [0, -20],
     opacity: [0,1],
-    duration: 1000,
+    duration: 900,
 })
 
 .add
@@ -16,7 +16,7 @@ navigation.add
     targets: '.--buttons-nav',
     opacity: [0,1],
     duration: 1500,
-},'-=400')
+},'-=300')
 
 .add
 ({
