@@ -171,6 +171,10 @@ const temperatureChart = new Chart(temperature_diagram, {
 });
 
 temperatureChart.options.plugins.title.text = "Temperatures chart";
+temperatureChart.options.scales.y.ticks.callback = function(values)
+{
+   return values + '°C'; 
+}
 temperatureChart.update();
 
 const humidityChart = new Chart(humidity_diagram, {
@@ -180,6 +184,10 @@ const humidityChart = new Chart(humidity_diagram, {
 });
 
 humidityChart.options.plugins.title.text = "Humidity chart";
+humidityChart.options.scales.y.ticks.callback = function(values)
+{
+   return values + '%'; 
+}
 humidityChart.update();
 
 const pressureChart = new Chart(pressure_diagram, {
@@ -189,6 +197,10 @@ const pressureChart = new Chart(pressure_diagram, {
 });
 
 pressureChart.options.plugins.title.text = "Pressure chart";
+pressureChart.options.scales.y.ticks.callback = function(values)
+{
+   return values + '%'; 
+}
 pressureChart.update();
 
 const windChart = new Chart(wind_diagram, {
@@ -198,6 +210,11 @@ const windChart = new Chart(wind_diagram, {
 });
 
 windChart.options.plugins.title.text = "Wind chart";
+windChart.options.scales.y.ticks.callback = function(values)
+{
+   return values; 
+}
+
 windChart.update();
 
 const lightnessChart = new Chart(lightness_diagram, {
@@ -207,6 +224,5 @@ const lightnessChart = new Chart(lightness_diagram, {
 });
 
 lightnessChart.options.plugins.title.text = "Lightness chart";
+lightnessChart.options.scales.y.ticks.display = false;
 lightnessChart.update();
-
-
