@@ -5,7 +5,7 @@ var navigation = anime.timeline
 
 navigation.add
 ({
-    targets: ['.display-2'],
+    targets: '.--title',
     translateY: [0, -20],
     opacity: [0,1],
     duration: 900,
