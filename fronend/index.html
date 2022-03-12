@@ -59,15 +59,11 @@
             </div>
             <div class="col  me-3">
                 <p class="d-inline display-5 p-4 --buttons-nav">Wind</p>
-                <p class=" display-5 p-4 --buttons-nav " id = "last-light"> 
-                    <!-- Hris WInd -->
-                </p>
+                <p class=" display-5 p-4 --buttons-nav " id = "last-wind"></p>
             </div>
             <div class="col  me-3">
-                <p class="d-inline display-5 p-4 --buttons-nav">Presure</p>
-                <p class=" display-5 p-4 --buttons-nav " id = "last-light">
-                    <!-- Hris Presure -->
-                </p>
+                <p class="d-inline display-5 p-4 --buttons-nav">Pressure</p>
+                <p class=" display-5 p-4 --buttons-nav " id = "last-pressure"></p>
             </div>
         </div>
        
@@ -258,7 +254,9 @@
         
         <div class="row p-3">
             <div class="col-8">
-                <canvas class = "chart3" id="ligthness-chart" width="1000" height="450"></canvas>
+                <div class="chart-container">
+                    <canvas class = "chart3" id="ligthness-chart"></canvas>
+                </div>
             </div>
 
             <div class="col-4 justify-content-around d-flex flex-column">
