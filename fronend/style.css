@@ -7,7 +7,7 @@
     ;
     /* font-size: 60px; */
     border-color: #FF5733;
-    border-radius: 28px;
+    border-radius: 7px;
     
     /* font-size: 30px; */
 }
@@ -18,7 +18,7 @@
 }
 
 .--purple-color{
-    background-color: #511845;
+    background-color: #20071b;
 }
 
 .--pink-color{
@@ -32,7 +32,7 @@
 .--inputs{
     background-color: transparent;
     border-color:#FF5733;
-    border-radius: 20px;
+    border-radius: 10px;
     /* text-align: center; */
     /* display: flex;
     justify-content: center; */

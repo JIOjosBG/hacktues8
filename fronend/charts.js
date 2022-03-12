@@ -27,7 +27,7 @@ const plugin =
         const ctx = chart.canvas.getContext('2d');
         ctx.save();
         ctx.globalCompositeOperation = 'destination-over';
-        ctx.fillStyle = "rgba(199, 0, 57, 0.8)";
+        ctx.fillStyle = "rgba(250, 50, 50, 0.6";
         ctx.fillRect(0, 0, chart.width, chart.height);
         ctx.restore();
     }
