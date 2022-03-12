@@ -8,6 +8,8 @@ from datetime import timedelta
 from .serializers import MeasurementsSerializer
 from measurements.models import Measurements
 from bases.models import Base
+from numpy import mean
+
 
 @api_view(['GET'])
 def apiOverview(request):
@@ -26,9 +28,9 @@ def apiOverview(request):
 
         },
         'average measurements':{
-            'dayly': '/average/day/',
-            'weekly': '/average/week/',
-            'monthly': '/average/month/',
+            'dayly': '/average-min-max/day/<int:pk>',
+            'weekly': '/average-min-max/week/<int:pk>',
+            'monthly': '/average-min-max/month/<int:pk>',
         }
 
     }
@@ -46,7 +48,6 @@ def measurementsListByDate(request,start,end):
     start_time = datetime.strptime(start,'%Y-%m-%dT%H:%M:%S')
     end_time = datetime.strptime(end,'%Y-%m-%dT%H:%M:%S')
     measurements = Measurements.objects.filter(measured_at__range=(start_time, end_time))
-
     serializer = MeasurementsSerializer(measurements,many=True)
     return Response(serializer.data)
 
@@ -114,52 +115,88 @@ def averages(request,start,end,pk):
 
 def return_average_from_measurements(measurements):
     data={
+        'av_data':{
         "temperature": 0.0,
         "humidity": 0.0,
         "light": 0.0,
         "wind": 0.0,
         "pressure": 0,
+    },
+    'min_data':{
+        "temperature": 9990000,
+        "humidity": 9990000,
+        "light": 9990000,
+        "wind": 9990000,
+        "pressure": 9990000,
+    },
+    'max_data':{
+        "temperature": 9990000,
+        "humidity": 9990000,
+        "light": 9990000,
+        "wind": 9990000,
+        "pressure": 9990000,
     }
+}
+    mes = {
+        'temp':[],
+        'hum':[],
+        'li':[],
+        'wi':[],
+        'press':[]
+    }
+
     for i in measurements:
-        data['temperature'] += i.temperature
-        data['humidity'] += i.humidity
-        data['light'] += i.light
-        data['wind'] += i.wind
-        data['pressure'] += i.pressure
-    l=len(measurements)
-    data['temperature'] /= l
-    data['humidity'] /= l
-    data['light'] /= l
-    data['wind'] /= l
-    data['pressure'] /= l
+        mes['temp'].append(i.temperature)
+        mes['hum'].append(i.humidity)
+        mes['li'].append(i.light)
+        mes['wi'].append(i.wind)
+        mes['press'].append(i.wind)
+        
+    data['av_data']['temperature']=mean(mes['temp'])
+    data['av_data']['humidity']=mean(mes['hum'])
+    data['av_data']['light']=mean(mes['li'])
+    data['av_data']['wind']=mean(mes['wi'])
+    data['av_data']['pressure']=mean(mes['press'])
+
+    data['min_data']['temperature']=min(mes['temp'])
+    data['min_data']['humidity']=min(mes['hum'])
+    data['min_data']['light']=min(mes['li'])
+    data['min_data']['wind']=min(mes['wi'])
+    data['min_data']['pressure']=min(mes['press'])
+
+    data['max_data']['temperature']=max(mes['temp'])
+    data['max_data']['humidity']=max(mes['hum'])
+    data['max_data']['light']=max(mes['li'])
+    data['max_data']['wind']=max(mes['wi'])
+    data['max_data']['pressure']=max(mes['press'])
 
     return data
 
 
 @api_view(['GET'])
-def averageDay(request):
+def averageDay(request,pk):
     now = timezone.now()
     yesterday = now - timedelta(days=1)
 
-    measurements = Measurements.objects.filter(measured_at__range=(yesterday,now))
+    measurements = Measurements.objects.filter(base=pk,measured_at__range=(yesterday,now))
     data=return_average_from_measurements(measurements)
     return Response(data)
 
 
 @api_view(['GET'])
-def averageWeek(request):
+def averageWeek(request,pk):
     now = timezone.now()
     week_ago = now - timedelta(days=1)
 
-    measurements = Measurements.objects.filter(measured_at__range=(week_ago,now))
+    measurements = Measurements.objects.filter(base=pk,measured_at__range=(week_ago,now))
     data=return_average_from_measurements(measurements)
     return Response(data)
 
 @api_view(['GET'])
-def averageMonth(request):
+def averageMonth(request,pk):
     now = timezone.now()
     month_ago = now - timedelta(days=1)
 
-    measurements = Measurements.objects.filter(measured_at__range=(month_ago,now))
+    measurements = Measurements.objects.filter(base=pk,measured_at__range=(month_ago,now))
     data=return_average_from_measurements(measurements)
     return Response(data)
