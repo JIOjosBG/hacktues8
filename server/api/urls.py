@@ -13,12 +13,7 @@ urlpatterns = [
     re_path(r'^measurements-list/(?P<start>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})/(?P<end>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})/(?P<pk>[0-9]|[0-9][0-9])/', views.measurementsListByDateForBase),
     re_path(r'^averages/(?P<start>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})/(?P<end>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})/(?P<pk>[0-9]|[0-9][0-9])/', views.averages),
 
-    path('average/day/',views.averageDay,name="average-day"),
-    path('average/week/',views.averageWeek,name="average-week"),
-    path('average/month/',views.averageMonth,name="average-month"),
-
-
-
-
-    
+    path('average-min-max/day/',views.averageDay,name="average-day"),
+    path('average-min-max/week/',views.averageWeek,name="average-week"),
+    path('average-min-max/month/',views.averageMonth,name="average-month"),
 ]
