@@ -20,7 +20,7 @@ navigation.add
 
 .add
 ({
-    targets: '.--button-left',
+    targets: '.--button-period',
     opacity: [0, 1],
     translateX: [-20,0],
 }, '-=1000')
