@@ -41,4 +41,4 @@ class Measurements(models.Model):
         return indexes
 
     def __str__(self):
-        return self.safe
+        return str(self.safe)
