@@ -18,11 +18,13 @@
 #define MEASUREMENT_DELAY 600000
 #define AP_SSID "SPIM"
 #define AP_PASS "AH^Bj7*?LE]h==@h=_.Y;E$kM?~FdL]TvzY8^9aFxh&W%-%hux"
+#define TCP_PORT 8088
+#define TCP_HOST "192.168.4.2"
 
 DHT dht(DHTPIN, DHT11);
 Adafruit_BMP085 bmp;
 HTTPClient http;
-WiFiServer server(8001);
+WiFiClient client;
 
 //Get timestamp
 long int timestamp = millis();
@@ -43,6 +45,17 @@ void connect_to_wifi() {
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
   delay(10);
+}
+
+
+void send_alert() {
+  WiFiClient client;
+  Serial.println("connecting to mobiles")
+  while (!client.connect(TCP_HOST, TCP_PORT)) {
+    Serial.print("_");
+  }
+  client.print(1);
+  client.stop();
 }
 
 
@@ -89,7 +102,10 @@ void send_measurements() {
   http.begin((String)SERVER_URL + "/api/measurement-create/");
   http.addHeader("Content-Type", "application/json");
   if (int code = http.POST(JSON.stringify(object)) > 0) {
-    Serial.println(http.getString());
+    String payload = http.getString();
+    object = JSON.parse(payload);
+    Serial.println(payload);
+    if (!object["safe"]) send_alert();
   }
   else Serial.println(code);
   http.end();
@@ -108,16 +124,19 @@ void setup() {
   //Start WiFi Access Point
   WiFi.softAP(AP_SSID, AP_PASS);
   Serial.println(WiFi.softAPIP());
-  server.begin();
+  //server.begin();
 
   //Send the first measurements
   send_measurements();
 }
 
-void loop() {  
+void loop() {
   if (millis() > timestamp + MEASUREMENT_DELAY) {
     send_measurements();
     timestamp = millis();
+  }
+  if (client) {
+    Serial.println("new client");
   }
 //  uint16_t sound = analogRead(SOUNDPIN);
 //  Serial.println(sound);
