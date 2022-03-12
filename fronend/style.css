@@ -1,7 +1,16 @@
+bory{
+    font-family: 'Sansita Swashed', cursive;
+}
+
 .--light{
     /* color: #FF5733; */
     color: #CAF0F8;
+    font-family: 'Sansita Swashed', cursive;
         
+}
+
+.--buttons-nav{
+    font-family: 'Sansita Swashed', cursive;
 }
 .--buttons-nav:hover{
     color: #FF5733;
@@ -9,16 +18,13 @@
 .--buttons-nav:focus{
     color:#FF5733;
 }
-orange
-.button-proba:active {
-    color: red;
-    box-shadow: yellow;
-}
 
 .--orange-elements{
     color: #FF5733;
     text-align: center;
     border-radius: 7px;
+    font-family: 'Sansita Swashed', cursive;
+    
 }
 .--orange-elements:hover{
     color:#CAF0F8;
@@ -34,7 +40,7 @@ orange
         font-size: 20px;
         padding: 0px 60px;
         background-color: transparent;
-        /* box-shadow:#101010; */
+
 }
 
 .--buttons-main:hover{
@@ -71,7 +77,6 @@ orange
 
 }
 
-
 .--inputs::placeholder{
     background-color: transparent;
     border:#00B4D8;
@@ -88,7 +93,7 @@ orange
     outline: 2px solid orange;   
   } */
 
-
+/* 
 
   @media only screen and (max-width: 600px) {
     .--section-1 {
@@ -97,7 +102,7 @@ orange
 
 
     }
-  }
+  } */
 
   /* .--section-1 {
     display: grid;
