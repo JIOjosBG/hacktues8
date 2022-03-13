@@ -12,8 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Sansita+Swashed:wght@700;900&display=swap" rel="stylesheet">
 
-    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <!-- align-items-center justify-content-evenly -->
+
 
 </head>
 <body class=" h-100 row align-items-center  --purple-color  " >
@@ -28,7 +29,7 @@
           </button>
          <!-- buttons -->
           <div class="collapse navbar-collapse nav justify-content-end " id="navbarSupportedContent">
-            <ul class="nav m-auto mb-2 mb-lg-0 ">
+            <ul class="nav mb-2 mb-lg-0 float-end">
 
               <div>
                 <span class="dropdown">
@@ -48,41 +49,77 @@
         </div>
     </nav>
     
-    <section class=" container mx-5 p-5 --light --section-1 --buttons-nav">
-        <h1 class="display-1 --title " style="text-align: left;">Current Weather</h1>
-        <div class="row align-items-center justify-content-evenly text-center">
-            <div class="col ">
-                 <p class="d-inline h2 py-4">Temperarure</p>
-                 <p class="h2 p-4 " id = "last-temperature"> </p>
+    <section class=" container mx-5 p-5 --light --section-1  ">
+        <h1 class="display-1 --title --buttons-nav" style="text-align: left;">Current Weather</h1>
+        <div class="row align-items-center justify-content-evenly text-center ">
+            <div class="col-4  ">
+                 <p class="d-inline h2 p-4 --buttons-nav ">Temperarure</p>
+                 <div class="row">
+                     <div class="col"> <p class="h2 p-4 --buttons-nav" id = "last-temperature"></p></div>
+                     <div class="col" > 
+                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_GGbnvx.json"  background="transparent"  speed="1"  style="width: 50px; "  loop  autoplay></lottie-player>
+                     </div>
+                 </div>
             </div>
-            <div class="col  "> 
-                <p class="d-inline h2 p-4">Humidity</p>
-                <p class="h2 p-4 " id = "last-humidity"> </p>
+            <div class="col-4  ">
+                 <p class="d-inline h2 p-4 --buttons-nav ">Humidity</p>
+                <div class="row">
+                    <div class="col"> <p class="h2 p-4 --buttons-nav" id = "last-humidity"></p></div>
+                    
+                    <div class="col"><lottie-player src="https://assets5.lottiefiles.com/packages/lf20_72kxuu2d.json"  background="transparent"  speed="1"  style="width: 50%; "  loop  autoplay></lottie-player></div>
+                </div>
+                
+               
             </div>
-            <div class="col">
-                <p class="d-inline h2 p-4">Light</p>
-                <p class=" h2 p-4" id = "last-light"> </p>
+            <div class="col-4  ">
+                <p class="d-inline h2 p-4 --buttons-nav ">Light</p>
+                <div class="row">
+                    <div class="col"><p class=" h2 p-4 --buttons-nav " id = "last-light"></p></div>
+                        <div class="col">
+                        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xlky4kvh.json"  background="transparent"  speed="1"  style="width: 50%;  "  loop  autoplay></lottie-player>
+                        </div>
+                </div>
             </div>
-            <div class="col ">
-                <p class="d-inline h2 p-4">Wind</p>
-                <p class=" h2 p-4 " id = "last-wind"> </p>
+            <div class="col-4  ">
+                <p class="d-inline h2 p-4 --buttons-nav ">Wind</p>
+                <div class="row">
+                    <div class="col"> <p class=" h2 p-4 --buttons-nav " id = "last-wind"> </div>
+                    <div class="col"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_gfmi4i3g.json"  background="transparent"  speed="1"  style="width: 42%;"  loop  autoplay></lottie-player>></div>
+                </div>                
+               
+                    <!-- Hris WInd -->
+                </p>
             </div>
-            <div class="col">
-                <p class="d-inline h2 p-4 ">Pressure</p>
-                <p class=" h2 p-4" id = "last-pressure"> </p>
+            <div class="col-4  ">
+                <p class="d-inline h2 p-4 --buttons-nav ">Pressure</p>
+                <div class="row">
+                    <div class="col"><p class=" h2 p-4 --buttons-nav " id = "last-pressure"></p></div>
+                    <div class="col"><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_4pku29fg.json"  background="transparent"  speed="1"  style="width: 50%;"  loop  autoplay></lottie-player></div>
+                </div>
+                
+                    <!-- Hris Presure -->
+                </p>
+            </div>
+            <div class="col-4  ">
+                <p class="d-inline h2 p-4 --buttons-nav ">Safety</p>
+                <div class="row">
+                    <div class="col"><p class=" h2 p-4 --buttons-nav " id = "last-safety"></p></div>
+                    <div class="col"><lottie-player src="https://assets9.lottiefiles.com/packages/lf20_C1QNkj.json"  background="transparent"  speed="1"  style="width: 50%;"  loop  autoplay></lottie-player></div>
+                </div>
+                
+                    <!-- Hris Presure -->
+                </p>
             </div>
         </div>
        
     </section>
 
-    <section class="container m-3 ms-5 ps-5 " >
+    <!-- <section class="container m-3 ms-5 ps-5 " >
        
         <div class="row  align-items-center justify-content-evenly text-center ">
-            
-
-            <!-- <div class="col-md-2  p d-flex justify-content-center"><button class="btn m-2 px-3 rounded  --orange-elements --buttons-main --button-period ">Latest</button></div>
+            <div class="col-md-2  p d-flex justify-content-center"><button class="btn m-2 px-3 rounded  --orange-elements --buttons-main --button-period ">Latest</button></div>
             <div class="col-md-2  p  d-flex justify-content-center"><button class="btn m-2 px-3 rounded   --orange-elements --buttons-main --button-period">Predictions</button></div>
-            <div class="col-md-2  p  d-flex shadow-none justify-content-center"><button class="btn m-2 px-3 rounded   --orange-elements --buttons-main --button-period">Older</button></div> -->
+            <div class="col-md-2  p  d-flex shadow-none justify-content-center"><button class="btn m-2 px-3 rounded   --orange-elements --buttons-main --button-period">Older</button></div>
             <div class="col-md-2  p  d-flex justify-content-center --button-right h3"> 
                 <span class="dropdown- m-2 px-3">
                     <a class="nav-link dropdown-toggle --orange-elements --drk-purple-color mt-2" href="#" id="Dropdownmain" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -98,7 +135,7 @@
             <div class="col-md-4  d-flex justify-content-center  ">
 
                 <div class="control-group " >
-                <!-- <span class="control-label h6">Period: </span> -->
+           
 
                     <div class="input-group " >
                         <span class="input-group-text input-group-text-lg --orange-elements --drk-purple-color --button-right">From</span>
@@ -112,7 +149,7 @@
 
         </div>
 
-    </section>
+    </section> -->
     
 
     <!-- section 1 -->
