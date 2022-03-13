@@ -223,6 +223,6 @@ const lightnessChart = new Chart(lightness_diagram, {
   ...commonConfiguration,
 });
 
-lightnessChart.options.plugins.title.text = "Lightness chart";
+lightnessChart.options.plugins.title.text = "Light intensity";
 lightnessChart.options.scales.y.ticks.display = false;
 lightnessChart.update();
