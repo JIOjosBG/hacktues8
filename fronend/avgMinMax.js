@@ -43,25 +43,23 @@ async function dayParametersFetching()
 {
     try 
     {
-        let result_day = await fetch('http://85.90.247.66/api/average-min-max/day/1');
-        let data_day = await result_day.json(); 
+        let resultDay = await fetch('http://85.90.247.66/api/average-min-max/day/1');
+        let dataDay = await resultDay.json(); 
 
         let result_week = await fetch('http://85.90.247.66/api/average-min-max/week/1');
-        let data_week = await result_week.json();
+        let dataWeek = await result_week.json();
         
         let result_month = await fetch('http://85.90.247.66/api/average-min-max/month/1');
-        let data_month = await result_month.json();
+        let dataMonth = await result_month.json();
 
 
         const dailies = document.getElementsByClassName("--daily");
         const weeklies = document.getElementsByClassName("--weekly");
         const monthlies = document.getElementsByClassName("--monthly");
-
-        console.log(monthlies);
         
-        makeData(dailies, data_day);
-        makeData(weeklies, data_week);
-        makeData(monthlies, data_month);
+        makeData(dailies, dataDay);
+        makeData(weeklies, dataWeek);
+        makeData(monthlies, dataMonth);
 
     }
     catch(error)

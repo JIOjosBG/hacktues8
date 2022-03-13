@@ -59,7 +59,7 @@ const plugin = {
   },
 };
 
-const data_temperatures = {
+const dataTemperatures = {
   labels,
   datasets: [
     {
@@ -69,7 +69,7 @@ const data_temperatures = {
   ],
 };
 
-const data_humidity = {
+const dataHumidity = {
   labels,
   datasets: [
     {
@@ -78,7 +78,7 @@ const data_humidity = {
   ],
 };
 
-const data_lightness = {
+const dataLightness = {
   labels,
   datasets: [
     {
@@ -87,7 +87,7 @@ const data_lightness = {
   ],
 };
 
-const data_pressure = {
+const dataPressure = {
     labels,
     datasets: [
       {
@@ -96,7 +96,7 @@ const data_pressure = {
     ],
 };
 
-const data_wind = {
+const dataWind = {
     labels,
     datasets: [
       {
@@ -166,7 +166,7 @@ const commonConfiguration = {
 
 const temperatureChart = new Chart(temperature_diagram, {
   type: "line",
-  data: data_temperatures,
+  data: dataTemperatures,
   ...commonConfiguration,
 });
 
@@ -179,7 +179,7 @@ temperatureChart.update();
 
 const humidityChart = new Chart(humidity_diagram, {
   type: "bar",
-  data: data_humidity,
+  data: dataHumidity,
   ...commonConfiguration,
 });
 
@@ -192,7 +192,7 @@ humidityChart.update();
 
 const pressureChart = new Chart(pressure_diagram, {
     type: "bar",
-    data: data_pressure,
+    data: dataPressure,
     ...commonConfiguration,
 });
 
@@ -205,7 +205,7 @@ pressureChart.update();
 
 const windChart = new Chart(wind_diagram, {
     type: "line",
-    data: data_wind,
+    data: dataWind,
     ...commonConfiguration,
 });
 
@@ -219,7 +219,7 @@ windChart.update();
 
 const lightnessChart = new Chart(lightness_diagram, {
   type: "polarArea",
-  data: data_lightness,
+  data: dataLightness,
   ...commonConfiguration,
 });
 
