@@ -43,3 +43,14 @@
 ![mobile_scheme](png/mobile.png)
 
 *Към микроконтролера ESP32 са свързани зумер през транзистор, светодиод и бутон с PULLDOWN резистор.*
+## Снимки
+### Снимки на устройствата
+![picture of station](png/picture_station.jpg)
+*прототип на устройството в станцията*
+
+![picture of mobile](png/picture_mobile.jpg)
+*прототип на джобното устройство*
+### Снимки на сайта
+![screenshot](png/screenshot1.png)
+![screenshot](png/screenshot3.png)
+![screenshot](png/screenshot2.png)
