@@ -24,4 +24,4 @@ async function lastParametersFetching()
 }
 
 lastParametersFetching();
-//setInterval(lastParametersFetching, 600000);
+setInterval(lastParametersFetching, 60000);
