@@ -12,8 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Sansita+Swashed:wght@700;900&display=swap" rel="stylesheet">
 
-    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <!-- align-items-center justify-content-evenly -->
+
 
 </head>
 <body class=" h-100 row align-items-center  --purple-color  " >
@@ -49,29 +50,55 @@
     </nav>
 
     <section class=" container mx-5 p-5 --light --section-1  ">
-        <h1 class="display-1 --title " style="text-align: left;">Current Weather</h1>
+        <h1 class="display-1 --title --buttons-nav" style="text-align: left;">Current Weather</h1>
         <div class="row align-items-center justify-content-evenly text-center ">
-            <div class="col ">
-                 <p class="d-inline h2 py-4 --buttons-nav">Temperarure</p>
-                 <p class="h2 p-4 --buttons-nav" id = "last-temperature"></p>
-
+            <div class="col-4  ">
+                 <p class="d-inline h2 p-4 --buttons-nav ">Temperarure</p>
+                 <div class="row">
+                     <div class="col"> <p class="h2 p-4 --buttons-nav" id = "last-temperature"></p></div>
+                     <div class="col" > 
+                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_GGbnvx.json"  background="transparent"  speed="1"  style="width: 50px; "  loop  autoplay></lottie-player>
+                     </div>
+                 </div>
+                
+                
             </div>
-            <div class="col  "> <p class="d-inline h2 p-4 --buttons-nav">Humidity</p>
-                <p class="h2 p-4 --buttons-nav" id = "last-humidity"></p>
+            <div class="col-4  ">
+                 <p class="d-inline h2 p-4 --buttons-nav ">Humidity</p>
+                <div class="row">
+                    <div class="col"> <p class="h2 p-4 --buttons-nav" id = "last-humidity"></p></div>
+                    
+                    <div class="col"><lottie-player src="https://assets5.lottiefiles.com/packages/lf20_72kxuu2d.json"  background="transparent"  speed="1"  style="width: 50%; "  loop  autoplay></lottie-player></div>
+                </div>
+                
+               
             </div>
-            <div class="col  ">
-                <p class="d-inline h2 p-4 --buttons-nav">Light</p>
-                <p class=" h2 p-4 --buttons-nav " id = "last-light"></p>
+            <div class="col-4  ">
+                <p class="d-inline h2 p-4 --buttons-nav ">Light</p>
+                <div class="row">
+                    <div class="col"><p class=" h2 p-4 --buttons-nav " id = "last-light"></p></div>
+                        <div class="col">
+                        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xlky4kvh.json"  background="transparent"  speed="1"  style="width: 50%;  "  loop  autoplay></lottie-player>
+                        </div>
+                </div>
             </div>
-            <div class="col  ">
-                <p class="d-inline h2 p-4 --buttons-nav">Wind</p>
-                <p class=" h2 p-4 --buttons-nav " id = "last-wind"> 
+            <div class="col-6  ">
+                <p class="d-inline h2 p-4 --buttons-nav ">Wind</p>
+                <div class="row">
+                    <div class="col"> <p class=" h2 p-4 --buttons-nav " id = "last-wind"> </div>
+                    <div class="col"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_gfmi4i3g.json"  background="transparent"  speed="1"  style="width: 42%;"  loop  autoplay></lottie-player>></div>
+                </div>                
+               
                     <!-- Hris WInd -->
                 </p>
             </div>
-            <div class="col  ">
-                <p class="d-inline h2 p-4 --buttons-nav">Pressure</p>
-                <p class=" h2 p-4 --buttons-nav " id = "last-pressure">
+            <div class="col-6  ">
+                <p class="d-inline h2 p-4 --buttons-nav ">Pressure</p>
+                <div class="row">
+                    <div class="col"><p class=" h2 p-4 --buttons-nav " id = "last-pressure"></p></div>
+                    <div class="col"><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_4pku29fg.json"  background="transparent"  speed="1"  style="width: 50%;"  loop  autoplay></lottie-player></div>
+                </div>
+                
                     <!-- Hris Presure -->
                 </p>
             </div>
