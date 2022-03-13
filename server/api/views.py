@@ -9,6 +9,7 @@ from .serializers import MeasurementsSerializer
 from measurements.models import Measurements
 from bases.models import Base
 from numpy import mean
+from math import sqrt
 
 
 @api_view(['GET'])
@@ -55,9 +56,21 @@ def measurementsListByDate(request,start,end):
 @api_view(['GET'])
 def measurementLast(request):
     measurement = Measurements.objects.last()
-
+    measurements = Measurements.objects.all()
     serializer = MeasurementsSerializer(measurement)
-    return Response(serializer.data)
+    data = serializer.data
+    mean = 0
+    sumOfElements = 0
+    for i in  measurements:
+        sumOfElements+=i.safe
+    mean = sumOfElements/len(measurements)
+    sumOfElements=0
+    for i in  measurements:
+        sumOfElements+=pow((i.safe-mean),2)
+    diviation = ( sqrt(sumOfElements/(len(measurements)-1)))
+    data['diviation']= diviation
+
+    return Response(data)
 
 
 @api_view(['POST'])
@@ -110,7 +123,7 @@ def averages(request,start,end,pk):
         for i in m:
             if(i != 'measured_at' and i != 'base' and i != 'safe'):
                average_data[i]=average_data[i]+m[i]/len(data)
-    print(average_data)
+
     return Response(average_data)
 
 def return_average_from_measurements(measurements):

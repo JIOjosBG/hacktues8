@@ -43,7 +43,7 @@ charts.add
     targets: '.--avg-values-right1',
     opacity: [0, 1],
     translateX: [90, 0],
-    delay: anime.stagger(200, {start: 1000}),
+    delay: anime.stagger(50, {start: 1000}),
     easing: 'easeInOutExpo',
     duration: 1500,
 })

@@ -1,16 +1,15 @@
-const array_for_temperatures = [];
-const array_for_humidity = [];
-const array_for_dates = [];
-const array_for_lightness = [];
-const array_for_pressure = [];
-const array_for_wind = [];
+const arrayForTemperatures = [];
+const arrayForHumidity = [];
+const arrayForDates = [];
+const arrayForLightness = [];
+const arrayForPressure = [];
+const arrayForWind = [];
 
 export async function takeParameters()
 {
     try
     {
         let result = await fetch('http://85.90.247.66/api/measurements-list/1');
-       // let result = await fetch(`http://85.90.247.66/api/measurements-list/${baseNumber}`);
         let data = await result.json();
 
         let pushed_data = 0;
@@ -19,16 +18,16 @@ export async function takeParameters()
         {
             if(pushed_data < 10)
             {
-                let fixed_temperatures = data[i].temperature.toFixed(2);
+                let fixedTemperatures = data[i].temperature.toFixed(2);
                 let date = new Date(data[i].measured_at);
-                let fixed_date = date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate() + '-' + date.getHours();                
+                let fixedDate = date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate() + '-' + date.getHours();                
 
-                array_for_temperatures.unshift(fixed_temperatures);
-                array_for_humidity.unshift(data[i].humidity);
-                array_for_dates.unshift(fixed_date);
-                array_for_lightness.unshift((((data[i].light)/4096)*100).toFixed(2));
-                array_for_pressure.unshift(((data[i].pressure)/1000).toFixed(0));
-                array_for_wind.unshift(data[i].wind);
+                arrayForTemperatures.unshift(fixedTemperatures);
+                arrayForHumidity.unshift(data[i].humidity);
+                arrayForDates.unshift(fixedDate);
+                arrayForLightness.unshift((((data[i].light)/4096)*100).toFixed(2));
+                arrayForPressure.unshift(((data[i].pressure)/1000).toFixed(0));
+                arrayForWind.unshift(data[i].wind);
 
                 pushed_data++
             }
@@ -52,30 +51,30 @@ export async function waiting()
 
 export function temperatures()
 {
-    return array_for_temperatures;
+    return arrayForTemperatures;
 }
 
 export function dates()
 {
-    return array_for_dates;
+    return arrayForDates;
 }
 
 export function humidity()
 {
-    return array_for_humidity;
+    return arrayForHumidity;
 }
 
 export function light()
 {
-    return array_for_lightness;
+    return arrayForLightness;
 }
 
 export function pressure()
 {
-    return array_for_pressure;
+    return arrayForPressure;
 }
 
 export function wind()
 {
-    return array_for_wind;
+    return arrayForWind;
 }
